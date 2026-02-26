@@ -1,6 +1,4 @@
 // loads .env file contents into process.env by default
-
-
 // here we imported .env express cors
 require('dotenv').config()
 const express=require('express')
@@ -25,7 +23,10 @@ require("./config/connection")
 // using server creating a server through router
 
 const CookBookServer=express()  // here we calls express
-CookBookServer.use(cors())  //frontend and backend are in diff port,so brower blocking it for security....so we use cors (cross-origin resource sharing)....then backend will share data to frontend with trustly
+CookBookServer.use(cors({
+    origin:'https://recipe-app-frontend-rr3w.vercel.app' //update cors with vercel deployed url
+
+}))  //frontend and backend are in diff port,so brower blocking it for security....so we use cors (cross-origin resource sharing)....then backend will share data to frontend with trustly
 
 
 
