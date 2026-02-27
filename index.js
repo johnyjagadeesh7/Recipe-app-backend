@@ -27,7 +27,7 @@ const CookBookServer=express()  // here we calls express
 //     origin:'https://recipe-app-frontend-33ng1pjw4-johny-jagadeeshs-projects.vercel.app' //update cors with vercel deployed url
 
 // }))  //frontend and backend are in diff port,so brower blocking it for security....so we use cors (cross-origin resource sharing)....then backend will share data to frontend with trustly
-CookBookServer.use(cors({
+CookBookServer.use(cors({// COMMANDED ABOVE code: when we redeploy each time it gets change url
     origin: (origin, callback) => {
         // This allows any request from a .vercel.app domain
         if (!origin || origin.endsWith('.vercel.app')) {
@@ -39,6 +39,11 @@ CookBookServer.use(cors({
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true
 }));
+
+
+
+
+
 
 
 
